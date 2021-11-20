@@ -1,18 +1,27 @@
 // Partials //
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
 
 // Variables //
 // Color palette and fonts //
-$primary-color-1: hsl(225, 100%, 94%);
-$primary-color-2: hsl(245, 75%, 52%);
-$neutral-color-1: hsl(225, 100%, 98%); 
-$neutral-color-2: hsl(224, 23%, 55%); 
-$neutral-color-3: hsl(223, 47%, 23%); 
-$neutral-color-4: hsl(0, 0%, 100%); 
+:root {
+    --primary-color-1: hsl(0, 36%, 70%);
+    --primary-color-2: hsl(0, 93%, 68%);
 
-$border-color: hsl(260, 12%, 81%);
+    --neutral-color: hsl(0, 6%, 24%);
 
-$primary-font: 'Red Hat Display', sans-serif;
+    --gradient-a1: hsl(0, 0%, 100%);  //* Linear, 135deg, from a1 to a2.
+    --gradient-a2: hsl(0, 100%, 98%);
+    --gradient-b1: hsl(0, 80%, 86%);  //* Linear, 135deg, from b1 to b2.
+    --gradient-b2: hsl(0, 74%, 74%);
+
+    --border-color: hsl(260, 12%, 81%);
+    --link-color: hsl(228, 45%, 44%);
+
+    --primary-font: 'Josefin Sans', sans-serif;
+    --atributtion-font-size: 0.6875rem;
+
+    font-family: 16px;
+}
 
 // Reusable code //
 @mixin flexContainer($direction, $align, $justify) {
@@ -24,26 +33,26 @@ $primary-font: 'Red Hat Display', sans-serif;
 
 // Mobile 375px //
 // Base //
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: $primary-font;
-    font-size: 16px;
-    background-color: $primary-color-1;
+    font-family: var(--primary-font);
+    background-color: var(--primary-color-1);
 }
 
 .attribution { 
-    font-size: 11px; 
+    font-size: var(--atributtion-font-size); 
     text-align: center;
-    padding: 3%; 
 }
 
 .attribution a { 
-    color: hsl(228, 45%, 44%); 
+    color: var(--link-color); 
 }
 
 button {
