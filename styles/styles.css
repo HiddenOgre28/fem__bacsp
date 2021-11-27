@@ -2,16 +2,20 @@
 :root {
   --primary-color-1: hsl(0, 36%, 70%);
   --primary-color-2: hsl(0, 93%, 68%);
-  --neutral-color: hsl(0, 6%, 24%);
+  --neutral-color-1: hsl(0, 6%, 24%);
+  --neutral-color-2: hsl(0, 0%, 100%);
   --gradient-a1: hsl(0, 0%, 100%);
   --gradient-a2: hsl(0, 100%, 98%);
   --gradient-b1: hsl(0, 80%, 86%);
   --gradient-b2: hsl(0, 74%, 74%);
-  --border-color: hsl(260, 12%, 81%);
+  --font-weight-light: 300;
+  --font-weigth-normal: 400;
+  --font-weigth-bold: 600;
+  --border-color: rgb(206, 151, 151, .5);
   --link-color: hsl(228, 45%, 44%);
   --primary-font: 'Josefin Sans', sans-serif;
   --atributtion-font-size: 0.6875rem;
-  font-family: 16px;
+  font-size: 16px;
 }
 
 *,
@@ -25,7 +29,7 @@
 
 body {
   font-family: var(--primary-font);
-  background-color: var(--primary-color-1);
+  background: linear-gradient(135deg, var(--gradient-a1) 0%, var(--gradient-a2) 80%);
 }
 
 .attribution {
@@ -44,5 +48,177 @@ button {
 
 button:hover {
   cursor: pointer;
+}
+
+.logo {
+  width: 100%;
+  padding: 9% 0 7% 10%;
+}
+
+.logo__img {
+  width: 30%;
+}
+
+.hero {
+  width: 100%;
+  height: 15.625rem;
+  background-image: url("../images/hero-mobile.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.main {
+  text-align: center;
+}
+
+.footer {
+  margin: 5% auto 5% auto;
+}
+
+.main__title {
+  font-size: 2.5rem;
+  font-weight: var(--font-weigth-bold);
+  text-transform: uppercase;
+  color: var(--neutral-color-1);
+  line-height: 2.5rem;
+  letter-spacing: .5rem;
+  margin: 17% auto 5% auto;
+  max-width: 225px;
+}
+
+.main__title__span {
+  font-weight: var(--font-weight-light);
+  color: var(--primary-color-1);
+}
+
+.main__para {
+  display: block;
+  color: var(--primary-color-1);
+  padding-left: 8%;
+  padding-right: 8%;
+  line-height: 1.5;
+  margin: 0 auto;
+  margin-bottom: 10%;
+}
+
+.main__form__email {
+  background: none;
+  border: 0.1rem solid var(--border-color);
+  width: 80%;
+  height: 3rem;
+  border-radius: 10rem;
+  margin-bottom: 20%;
+  z-index: -1;
+  max-width: 300px;
+}
+
+.main__form__email::-webkit-input-placeholder {
+  color: var(--border-color);
+  font-weight: var(--font-weigth-bold);
+}
+
+.main__form__email:-ms-input-placeholder {
+  color: var(--border-color);
+  font-weight: var(--font-weigth-bold);
+}
+
+.main__form__email::-ms-input-placeholder {
+  color: var(--border-color);
+  font-weight: var(--font-weigth-bold);
+}
+
+.main__form__email::placeholder {
+  color: var(--border-color);
+  font-weight: var(--font-weigth-bold);
+}
+
+.main__form__btn {
+  border: none;
+  background: linear-gradient(135deg, var(--gradient-b1) 0%, var(--gradient-b2) 85%);
+  width: 18%;
+  height: 3rem;
+  border-radius: 15rem;
+  -webkit-box-shadow: -10px 10px 90px #a17272;
+          box-shadow: -10px 10px 90px #a17272;
+  position: absolute;
+  right: 2.25rem;
+  z-index: 100;
+  max-width: 67.5px;
+}
+
+.main__form__btn__img {
+  z-index: 999;
+  position: absolute;
+  right: 3.8rem;
+  top: 42.8rem;
+}
+
+.main__form__btn:hover {
+  cursor: pointer;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  -webkit-transform: scale(1.1, 1);
+          transform: scale(1.1, 1);
+  background: linear-gradient(135deg, var(--gradient-b1) 90%, var(--gradient-b2) 100%);
+}
+
+input[type=email] {
+  padding-left: 8%;
+  color: var(--border-color);
+  font-weight: var(--font-weigth-bold);
+}
+
+@media screen and (min-device-width: 425px) {
+  .main__form {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .main__form__btn {
+    right: 3.9rem;
+  }
+  .main__form__btn__img {
+    top: 46rem;
+    right: 5.5rem;
+  }
+  .main__para {
+    width: 350px;
+  }
+}
+
+@media screen and (min-device-width: 768px) {
+  .hero {
+    height: 31.625rem;
+  }
+  .main__title {
+    font-size: 4.5rem;
+    line-height: 5rem;
+    width: 25rem;
+    max-width: none;
+  }
+  .main__para {
+    font-size: 2rem;
+    line-height: 3rem;
+    width: 33rem;
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .main__form__email {
+    width: 30rem;
+    max-width: none;
+    font-size: 1.5rem;
+  }
+  .main__form__btn {
+    right: 9rem;
+  }
+  .main__form__btn__img {
+    top: 88.5rem;
+    right: 10.5rem;
+  }
+}
+
+.footer__p {
+  font-size: .9rem;
+  margin: 0% auto;
 }
 /*# sourceMappingURL=styles.css.map */
