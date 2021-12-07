@@ -1,8 +1,8 @@
-// Partials //
+/* Partials */
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
 
-// Variables //
-// Color palette and fonts //
+/* Variables */
+/* Color palette and fonts */
 :root {
     --primary-color-1: hsl(0, 36%, 70%);
     --primary-color-2: hsl(0, 93%, 68%);
@@ -36,8 +36,8 @@
     justify-content: $justify;
 }
 
-// Mobile 375px //
-// Base //
+/* Mobile 375px */
+/* Base */
 *,
 *::before,
 *::after {
@@ -61,50 +61,66 @@ body {
 }
 
 button {
-    background: none;
-    border: none;
-
     &:hover {
         cursor: pointer;
     }
 }
 
-// Layout //
-.logo {
-    width: 100%;
-    padding: 9% 0 7% 10%;
+/* Layout */
+.grid-container{
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-areas: 
+    "logo"
+    "hero"
+    "content";
+    text-align: center;
+    color: var(--primary-color-1);
+}
 
-    &__img {
-        width: 30%;
-    }
+.logo{
+    grid-area: logo;
 }
 
 .hero {
-    width: 100%;
-    height: 15.625rem;
     background-image: url("../images/hero-mobile.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    min-height: 250px;
+    grid-area: hero;
 }
 
-.main {
-    text-align: center;
+.content {
+    grid-area: content;
 }
 
 .footer {
-    margin: 5% auto 5% auto;
+    margin-top: 5rem;
+    padding-bottom: .5rem;
 }
 
-// Modules //
-.main__title {
+/* Moules */
+.logo {
+    text-align: left;
+
+    &__img {
+        display: block;
+        width: 45%;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        padding-left: 2.5rem;
+    }
+}
+
+.title {
+    padding-top: 4rem;
+    padding-bottom: 1.5rem;
     font-size: 2.5rem;
-    font-weight: var(--font-weigth-bold);
     text-transform: uppercase;
-    color: var(--neutral-color-1);
+    font-weight: var(--font-weigth-bold);
     line-height: 2.5rem;
     letter-spacing: .5rem;
-    margin: 17% auto 5% auto;
-    max-width: 225px;
+    color: var(--neutral-color-1);
 
     &__span {
         font-weight: var(--font-weight-light);
@@ -112,27 +128,24 @@ button {
     }
 }
 
-.main__para {
-    display: block;
-    color: var(--primary-color-1);
-    padding-left: 8%;
-    padding-right: 8%;
+.para {
     line-height: 1.5;
-    margin: 0 auto;
-    margin-bottom: 10%;
+    padding-left: 2.7rem;
+    padding-right: 2.7rem;
+    margin-bottom: 2rem;
 }
 
-.main__form {
+.form {
+    @include flexContainer(row, center, center);
 
     &__email {
-        background:none;
-        border: .1rem solid var(--border-color);
-        width: 80%;
-        height: 3rem;
+        min-height: 3rem;
+        width: 18rem;
+        border: 0.1rem solid var(--border-color);
         border-radius: 10rem;
-        margin-bottom: 20%;
-        z-index: -1;
-        max-width: 300px;
+        color: var(--border-color);
+        font-weight: var(--font-weigth-bold);
+        transform: translateX(2.6rem);
 
         &::placeholder {
             color: var(--border-color);
@@ -146,109 +159,117 @@ button {
         width: 18%;
         height: 3rem;
         border-radius: 15rem;
-        box-shadow: -10px 10px 90px rgb(161, 114, 114);
-        position: absolute;
-        right: 2.25rem;
-        z-index: 100;
-        max-width: 67.5px;
-
-        &__img {
-            z-index: 999;
-            position: absolute;
-            right: 3.8rem;
-            top: 42.8rem;
-        }
-
-        &:hover {
-            cursor: pointer;
-            transition: all .2s ease-in-out; 
-            transform: scale(1.1, 1); 
-            background: linear-gradient(135deg, var(--gradient-b1) 90%, var(--gradient-b2) 100%);
-        }
+        transform: translateX(-1.6rem)
     }
 }
 
 input[type = email] {
-    padding-left: 8%;
+    padding-left: 2rem;
     color: var(--border-color);
     font-weight: var(--font-weigth-bold);
+    background-color: inherit;
 }
 
 
-//Mobile Large 425px //
-@media screen and (min-device-width: 425px) {
-    .main__form {
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .main__form__btn{
-        right: 3.9rem;
-
-        &__img {
-            top: 46rem;
-            right: 5.5rem
-        }
-    }
-
-    .main__para {
-        width: 350px;
+/* Mobile 425px */
+@media screen and (min-width: 425px) {
+    .title {
+        padding-left: 3rem;
+        padding-right: 3rem;
     }
 }
 
 
-// Table 768px //
-@media screen and (min-device-width: 768px) {
-    .hero {
-        height: 31.625rem;
-    }
-
-    .main__title {
-        font-size: 4.5rem;
+/* Tablet 768px */
+@media screen and (min-width: 768px) {
+    .title {
+        font-size: 5rem;
         line-height: 5rem;
-        width: 25rem;
-        max-width: none;
-    }
-
-    .main__para {
-        font-size: 2rem;
-        line-height: 3rem;
-        width: 33rem;
-        max-width: none;
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    .main__form {
-        
-        &__email {
-            width: 30rem;
-            max-width: none;
-            font-size: 1.5rem;
-        }
-    }
-
-    .main__form__btn {
-        right: 9rem;
-
-        &__img {
-            top: 88.5rem;
-            right: 10.5rem;
-        }
-    }
-}
-
-.footer {
-
-    &__p {
-        font-size: .9rem;
-        margin: 0% auto;
     }
     
+    .para {
+        padding-left: 10rem;
+        padding-right: 10rem;
+        font-size: 1.2rem;
+    }
+
+    .form {
+        &__btn {
+            width: 5rem;
+        }
+    }
 }
 
 
-// Desktop 1024px //
-@media screen and (min-device-width: 1024px) {
+/* Desktop 1024px */
+@media screen and (min-width: 1024px) {
+    .grid-container {
+        grid-template-areas: 
+        "logo logo logo logo hero hero hero"
+        "content content content content hero hero hero"
+        "content content content content hero hero hero";
+    }
 
+    .hero{
+        background-image: url("../images/hero-desktop.jpg");
+        max-width: 610px;
+        min-height: 800px;
+        height: 100vh;
+    }
+}
+
+
+/* Desktop 1040px */
+@media screen and (min-width: 1040px) {
+    .logo {
+        &__img {
+            width: 35%;
+            margin-top: 5rem;
+            margin-left: 7rem;
+        }
+    }
+
+    .hero {
+        height: 100%;
+    }
+
+    .title {
+        padding-left: 9rem;
+        font-size: 6rem;
+        line-height: 6.5rem;
+        text-align: left;
+    }
+
+    .para {
+        font-size: 1.5rem;
+        text-align: left;
+        padding-left: 9rem;
+        margin-right: 7rem;
+        margin-bottom: 4rem;
+    }
+
+    .form {
+        &__email {
+            margin-bottom: 10rem;
+            width: 35rem;
+            height: 4.5rem;
+            font-size: 1.5rem;
+            transform: translateX(5.5rem);
+        }
+
+        &__btn {
+            width: 8rem;
+            height: 4.5rem;
+            transform: translateY(-5rem) translateX(-2.6rem);
+
+            &__img {
+                width: 15%;
+            }
+        }
+    }
+
+    .footer {
+        margin-top: .5rem;
+        padding-bottom: .5rem;
+    }
 }
