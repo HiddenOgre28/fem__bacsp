@@ -16,6 +16,8 @@
   --font-weigth-bold: 600;
   --border-color: rgb(206, 151, 151, .5);
   --link-color: hsl(228, 45%, 44%);
+  --error-input-color: rgb(233, 0, 0);
+  --error-msg-color: rgb(240, 50, 50);
   --primary-font: 'Josefin Sans', sans-serif;
   --atributtion-font-size: 0.6875rem;
   font-size: 16px;
@@ -180,11 +182,50 @@ button:hover {
           transform: translateX(-1.6rem);
 }
 
+.form__btn:hover {
+  background: var(--gradient-b1);
+}
+
+.form__error {
+  visibility: hidden;
+  -webkit-transform: translateX(-2rem);
+          transform: translateX(-2rem);
+}
+
+.form__message {
+  font-size: .8rem;
+  font-weight: var(--font-weigth-bold);
+  color: var(--error-msg-color);
+  margin-top: .5rem;
+  margin-left: -3rem;
+}
+
 input[type=email] {
   padding-left: 2rem;
   color: var(--border-color);
   font-weight: var(--font-weigth-bold);
   background-color: inherit;
+}
+
+.message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 13rem;
+}
+
+.message__title {
+  font-weight: var(--font-weigth-bold);
 }
 
 /* Mobile 425px */
@@ -263,6 +304,16 @@ input[type=email] {
   }
   .form__btn__img {
     width: 15%;
+  }
+  .form__error {
+    -webkit-transform: translateX(-3.2rem) translateY(-5rem);
+            transform: translateX(-3.2rem) translateY(-5rem);
+    width: 5%;
+  }
+  .form__message {
+    font-size: 1.3rem;
+    -webkit-transform: translateX(-3.2rem) translateY(-9rem);
+            transform: translateX(-3.2rem) translateY(-9rem);
   }
   .footer {
     margin-top: .5rem;
