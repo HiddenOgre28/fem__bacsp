@@ -1,4 +1,4 @@
-const emailRegex = /^([\w-?]+)@([\w-?]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/ig;
+const emailRegex = /^([\w\-?]+)@([\w\-?]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/ig;
 
 // Existing elements
 const input = document.querySelector(".form__email");
