@@ -1,9 +1,7 @@
-const emailRegex = /^([\w\-?]+)@([\w\-?]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/ig;
+const emailRegex = /^([\w-?]+)@([\w-?]+)\.([a-z]{2,8})(\.[a-z]{2,8})?$/ig;
 
 // Existing elements
 const input = document.querySelector(".form__email");
-const btn = document.querySelector(".form__btn");
-
 const form = document.querySelector(".form");
 
 const errorIcon = document.querySelector(".form__error");
@@ -21,31 +19,34 @@ para.classList.add("form__message");
 input.addEventListener("keydown", checkValidity);
 form.addEventListener("submit", submitForm);
 
-function checkValidity(e) {
-    let test = emailRegex.test(e.target.value);
-    
-    if(test) {
+function checkValidity() {
+    if(emailRegex.test(input.value) === true) {
         if(content.lastChild.nodeName === "P") {
             content.removeChild(para);
         }
+
         input.style.border = "0.1rem solid var(--border-color)";
         errorIcon.style.visibility = "hidden";
-        return true;
-    } else {
+
+        return emailRegex.test(input.value);
+    } 
+    
+    if(emailRegex.test(input.value) === false) {
         content.appendChild(para);
+
         input.style.border = "0.1rem solid var(--error-input-color)";
         errorIcon.style.visibility = "visible";
-        return false;
+
+        return emailRegex.test(input.value);
     }
 }
 
 function submitForm(e) {
-    let email = document.querySelector("#email").value;
-    console.log(email);
-
-    if(email === "" || email === null) {
+    if(input.value === "" || input.value === null) {
         e.preventDefault();
-    } else if(test === false) {
+    } 
+    
+    if(emailRegex.test(input.value) === false) {
         e.preventDefault();
     }
 }
