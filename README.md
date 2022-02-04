@@ -50,8 +50,8 @@ First, I modified the index.html file and gave the text inside it the structure 
 ### What I learned
 While styling and researching for this challenge, I learned about:
 
-- To make a grid layout.
-- To validate a form with JavaScript.
+- How to make a grid layout.
+- How to validate a form with JavaScript.
 
 ### Continued development
 
