@@ -13,7 +13,6 @@ This is a solution to the [Base Apparel coming soon page challenge on Frontend M
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
